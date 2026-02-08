@@ -145,13 +145,6 @@ streamlit run interview_analyzer_app.py
 ### Option 1: Streamlit Cloud (Public Access)
 **Live App:** https://interview-analyze.streamlit.app
 
-1. Fork this repository on GitHub
-2. Go to [share.streamlit.io](https://share.streamlit.io)
-3. Sign in with GitHub
-4. Deploy from your repository
-5. Set main file path: `interview_analyzer_app.py`
-
-See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions.
 
 ### Option 2: Local (Full Features)
 **Setup Guide:** [LOCAL_SETUP.md](LOCAL_SETUP.md)
@@ -190,7 +183,7 @@ Contributions are welcome! Feel free to:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Built with [Streamlit](https://streamlit.io/)
 - Audio analysis powered by [Librosa](https://librosa.org/) and [Parselmouth](https://parselmouth.readthedocs.io/)
