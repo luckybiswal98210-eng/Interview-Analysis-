@@ -1,6 +1,6 @@
 """
-Advanced speech analysis module for Parkinson's detection from conversational speech.
-Extracts vocal, articulatory, prosodic, and timing features.
+Advanced speech analysis module for interview response quality assessment.
+Extracts vocal, articulatory, prosodic, and timing features from conversational speech.
 """
 
 import numpy as np

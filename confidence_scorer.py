@@ -1,6 +1,6 @@
 """
-Confidence scoring and feedback generation for Parkinson's detection.
-Analyzes speech features and provides actionable feedback.
+Confidence scoring and feedback generation for interview speech quality assessment.
+Analyzes speech features and provides actionable feedback for interview performance.
 """
 
 import json

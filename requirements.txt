@@ -1,8 +1,6 @@
-# Streamlit Cloud Optimized Requirements
-streamlit>=1.30.0
-numpy>=1.24.0
-librosa>=0.10.0
-praat-parselmouth>=0.4.0
-soundfile>=0.12.0
-pandas>=2.0.0
-scipy>=1.10.0
+streamlit
+numpy
+librosa
+soundfile
+sounddevice
+praat-parselmouth==0.4.3

@@ -8,17 +8,9 @@ import numpy as np
 import os
 import soundfile as sf
 import tempfile
+import sounddevice as sd
 import json
 from pathlib import Path
-
-# Try to import sounddevice (won't work on Streamlit Cloud)
-try:
-    import sounddevice as sd
-    RECORDING_AVAILABLE = True
-except (ImportError, OSError):
-    RECORDING_AVAILABLE = False
-    st.warning("⚠️ Live recording not available on this platform. Please use file upload.")
-
 
 # Import analysis modules
 try:
@@ -157,27 +149,18 @@ if questions:
     # Recording options
     st.markdown("### 🎙️ Record Your Response")
     
-    if RECORDING_AVAILABLE:
-        col1, col2 = st.columns(2)
-        with col1:
-            st.info("**📁 Upload Audio File**\n\nUpload a pre-recorded response (WAV/MP3/M4A)")
-        with col2:
-            st.success("**🎤 Record Live**\n\nRecord your response directly in the browser")
-        
-        input_method = st.radio("Choose input method:", ["📁 Upload audio file", "🎤 Record live"], horizontal=True)
-    else:
+    col1, col2 = st.columns(2)
+    with col1:
         st.info("**📁 Upload Audio File**\n\nUpload a pre-recorded response (WAV/MP3/M4A)")
-        input_method = "📁 Upload audio file"
+    with col2:
+        st.success("**🎤 Record Live**\n\nRecord your response directly in the browser")
+    
+    input_method = st.radio("Choose input method:", ["📁 Upload audio file", "🎤 Record live"], horizontal=True)
     
     audio_file = None
     if input_method == "📁 Upload audio file":
         audio_file = st.file_uploader("Upload your response", type=["wav", "mp3", "m4a"], key="upload")
-        if audio_file:
-            st.success("✅ Audio file uploaded successfully!")
-            st.markdown("#### 🎧 Preview Your Audio")
-            st.audio(audio_file, format=f"audio/{audio_file.name.split('.')[-1]}")
-            
-    elif input_method == "🎤 Record live" and RECORDING_AVAILABLE:
+    elif input_method == "🎤 Record live":
         duration = st.slider("Recording duration (seconds)", 10, 20, 15)
         if st.button(f"🎤 START RECORDING ({duration} seconds)", type="primary", key="record"):
             with st.spinner(f"🎤 Recording for {duration} seconds... Speak naturally!"):
@@ -189,14 +172,6 @@ if questions:
                 ).name
                 sf.write(st.session_state.recorded_audio_path, audio_data, fs)
                 st.success(f"✅ {duration}-second recording saved!")
-        
-        # Show audio player for recorded audio
-        if st.session_state.recorded_audio_path and os.path.exists(st.session_state.recorded_audio_path):
-            st.markdown("#### 🎧 Preview Your Recording")
-            with open(st.session_state.recorded_audio_path, 'rb') as audio_file_read:
-                audio_bytes = audio_file_read.read()
-                st.audio(audio_bytes, format="audio/wav")
-
     
     # ANALYZE BUTTON
     if (audio_file is not None or st.session_state.recorded_audio_path) and st.button(
