@@ -172,6 +172,13 @@ if questions:
     audio_file = None
     if input_method == "📁 Upload audio file":
         audio_file = st.file_uploader("Upload your response", type=["wav", "mp3", "m4a"], key="upload")
+        
+        # Add audio player for uploaded file
+        if audio_file is not None:
+            st.markdown("#### 🔊 Preview Your Audio")
+            st.audio(audio_file, format=f"audio/{audio_file.name.split('.')[-1]}")
+            st.caption("✅ Audio uploaded successfully! You can play/pause and the player will resume from where you paused.")
+            
     elif input_method == "🎤 Record live" and SOUNDDEVICE_AVAILABLE:
         duration = st.slider("Recording duration (seconds)", 10, 20, 15)
         if st.button(f"🎤 START RECORDING ({duration} seconds)", type="primary", key="record"):
@@ -184,6 +191,12 @@ if questions:
                 ).name
                 sf.write(st.session_state.recorded_audio_path, audio_data, fs)
                 st.success(f"✅ {duration}-second recording saved!")
+                
+                # Add audio player for recorded file
+                st.markdown("#### 🔊 Preview Your Recording")
+                with open(st.session_state.recorded_audio_path, "rb") as audio_file_obj:
+                    st.audio(audio_file_obj.read(), format="audio/wav")
+                st.caption("✅ Recording complete! You can play/pause and the player will resume from where you paused.")
     
     # ANALYZE BUTTON
     if (audio_file is not None or st.session_state.recorded_audio_path) and st.button(

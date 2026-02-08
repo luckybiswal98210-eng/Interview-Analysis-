@@ -2,6 +2,34 @@
 
 AI-powered speech quality analysis tool for interview practice and improvement.
 
+## 🌐 Try It Now!
+
+### ☁️ Cloud Version (Streamlit Cloud)
+**Live Demo:** [https://interview-analyze.streamlit.app](https://interview-analyze.streamlit.app)
+- ✅ Upload audio files (WAV/MP3/M4A)
+- ✅ Play/pause/resume audio playback
+- ✅ Full speech analysis
+- ❌ No live recording (cloud limitation)
+
+### 🏠 Local Version (Full Features)
+**Setup Guide:** [LOCAL_SETUP.md](LOCAL_SETUP.md)
+- ✅ Upload audio files
+- ✅ **Live recording** (10-20 seconds)
+- ✅ Play/pause/resume audio playback
+- ✅ Full speech analysis
+
+**Quick Start:**
+```bash
+git clone https://github.com/luckybiswal98210-eng/Interview-Analysis-.git
+cd Interview-Analysis-
+pip install -r requirements.txt
+pip install sounddevice  # For live recording
+streamlit run interview_analyzer_app.py
+```
+**Local URL:** http://localhost:8501
+
+---
+
 ## 🚀 Features
 
 - **🎙️ Multi-dimensional Speech Analysis**
@@ -11,7 +39,7 @@ AI-powered speech quality analysis tool for interview practice and improvement.
   - Speech Timing (pauses, speech rate, pacing)
 
 - **📝 Professional Interview Questions**
-  - Common interview questions across multiple categories
+  - 8 common interview questions across multiple categories
   - Personal introduction, behavioral, motivation, and career goals
   - Recommended response durations (10-20 seconds)
 
@@ -20,10 +48,15 @@ AI-powered speech quality analysis tool for interview practice and improvement.
   - Actionable recommendations for improvement
   - Overall quality scores (0-100) for each dimension
 
-- **🎯 Flexible Recording Options**
+- **🎯 Flexible Input Options**
   - Upload pre-recorded audio (WAV/MP3/M4A)
-  - Record live directly in the browser
-  - Adjustable recording duration
+  - Record live directly in browser (local only)
+  - Adjustable recording duration (10-20 seconds)
+
+- **🔊 Audio Playback** ✨ NEW!
+  - Play/pause uploaded or recorded audio
+  - Resume from where you paused
+  - Preview before analyzing
 
 ## 🛠️ Tech Stack
 
@@ -32,52 +65,47 @@ AI-powered speech quality analysis tool for interview practice and improvement.
 - **Librosa** - Audio feature extraction
 - **Parselmouth/Praat** - Advanced voice analysis
 - **NumPy** - Numerical computations
-- **SoundDevice/SoundFile** - Audio I/O
+- **SoundFile** - Audio I/O
+- **SoundDevice** - Live recording (local only)
 
 ## 📦 Installation
 
-### Prerequisites
+### Cloud Deployment (Streamlit Cloud)
+Just visit: [https://interview-analyze.streamlit.app](https://interview-analyze.streamlit.app)
 
-- Python 3.8 or higher
-- pip package manager
+### Local Setup (Full Features)
 
-### Setup
+See [LOCAL_SETUP.md](LOCAL_SETUP.md) for detailed instructions.
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/InterviewAnalysisApp.git
-   cd InterviewAnalysisApp
-   ```
-
-2. **Create virtual environment**
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-3. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-## ▶️ Usage
-
-### Run the Web App
-
+**Quick Install:**
 ```bash
+# Clone repository
+git clone https://github.com/luckybiswal98210-eng/Interview-Analysis-.git
+cd Interview-Analysis-
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Install sounddevice for live recording
+pip install sounddevice
+
+# Run the app
 streamlit run interview_analyzer_app.py
 ```
 
-The app will automatically open in your browser at `http://localhost:8501`
+## ▶️ Usage
 
 ### How to Use
 
 1. **Welcome Screen** - Click "Start Analysis" to begin
 2. **Select Question** - Choose from 8 professional interview questions
-3. **Record Response** - Either upload audio or record live (10-20 seconds)
-4. **Analyze** - Click "Analyze Speech Quality" to get your results
-5. **Review Feedback** - See detailed scores and personalized recommendations
-6. **Download Results** - Save your analysis report as a text file
+3. **Record Response**:
+   - **Upload:** Choose a pre-recorded audio file
+   - **Record Live:** Record directly (local only, 10-20 seconds)
+4. **Preview Audio** - Play/pause your audio before analyzing
+5. **Analyze** - Click "Analyze Speech Quality" to get your results
+6. **Review Feedback** - See detailed scores and personalized recommendations
+7. **Download Results** - Save your analysis report as a text file
 
 ## 📊 Understanding Your Scores
 
@@ -119,9 +147,10 @@ The app will automatically open in your browser at `http://localhost:8501`
 
 ## 🚀 Deployment
 
-### Streamlit Cloud (Recommended)
+### Option 1: Streamlit Cloud (Public Access)
+**Live App:** [https://interview-analyze.streamlit.app](https://interview-analyze.streamlit.app)
 
-1. Push your code to GitHub
+1. Fork this repository on GitHub
 2. Go to [share.streamlit.io](https://share.streamlit.io)
 3. Sign in with GitHub
 4. Deploy from your repository
@@ -129,10 +158,19 @@ The app will automatically open in your browser at `http://localhost:8501`
 
 See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions.
 
+### Option 2: Local (Full Features)
+**Setup Guide:** [LOCAL_SETUP.md](LOCAL_SETUP.md)
+
+Run on your machine with live recording support:
+```bash
+streamlit run interview_analyzer_app.py
+```
+Access at: http://localhost:8501
+
 ## 📁 Project Structure
 
 ```
-InterviewAnalysisApp/
+Interview-Analysis-/
 ├── interview_analyzer_app.py    # Main Streamlit application
 ├── speech_analyzer.py            # Speech feature extraction
 ├── confidence_scorer.py          # Scoring and feedback generation
@@ -141,6 +179,7 @@ InterviewAnalysisApp/
 ├── requirements.txt              # Python dependencies
 ├── .gitignore                    # Git ignore rules
 ├── README.md                     # This file
+├── LOCAL_SETUP.md                # Local setup guide
 └── DEPLOYMENT.md                 # Deployment guide
 ```
 
