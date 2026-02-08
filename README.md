@@ -2,23 +2,16 @@
 
 AI-powered speech quality analysis tool for interview practice and improvement.
 
+---
+
 ## 🌐 Try It Now!
 
-### ☁️ Cloud Version (Streamlit Cloud)
-**Live Demo:** [https://interview-analyze.streamlit.app](https://interview-analyze.streamlit.app)
-- ✅ Upload audio files (WAV/MP3/M4A)
-- ✅ Play/pause/resume audio playback
-- ✅ Full speech analysis
-- ❌ No live recording (cloud limitation)
+### ☁️ Streamlit Cloud (Live Demo)
+**🔗 https://interview-analyze.streamlit.app**
 
-### 🏠 Local Version (Full Features)
-**Setup Guide:** [LOCAL_SETUP.md](LOCAL_SETUP.md)
-- ✅ Upload audio files
-- ✅ **Live recording** (10-20 seconds)
-- ✅ Play/pause/resume audio playback
-- ✅ Full speech analysis
+Access the app instantly in your browser - no installation required!
 
-**Quick Start:**
+### 🏠 Run Locally (Full Features with Live Recording)
 ```bash
 git clone https://github.com/luckybiswal98210-eng/Interview-Analysis-.git
 cd Interview-Analysis-
@@ -27,6 +20,8 @@ pip install sounddevice  # For live recording
 streamlit run interview_analyzer_app.py
 ```
 **Local URL:** http://localhost:8501
+
+📖 **Detailed Setup Guide:** See [LOCAL_SETUP.md](LOCAL_SETUP.md)
 
 ---
 
@@ -53,7 +48,7 @@ streamlit run interview_analyzer_app.py
   - Record live directly in browser (local only)
   - Adjustable recording duration (10-20 seconds)
 
-- **🔊 Audio Playback** ✨ NEW!
+- **🔊 Audio Playback**
   - Play/pause uploaded or recorded audio
   - Resume from where you paused
   - Preview before analyzing
@@ -71,7 +66,7 @@ streamlit run interview_analyzer_app.py
 ## 📦 Installation
 
 ### Cloud Deployment (Streamlit Cloud)
-Just visit: [https://interview-analyze.streamlit.app](https://interview-analyze.streamlit.app)
+Just visit: **https://interview-analyze.streamlit.app**
 
 ### Local Setup (Full Features)
 
@@ -148,7 +143,7 @@ streamlit run interview_analyzer_app.py
 ## 🚀 Deployment
 
 ### Option 1: Streamlit Cloud (Public Access)
-**Live App:** [https://interview-analyze.streamlit.app](https://interview-analyze.streamlit.app)
+**Live App:** https://interview-analyze.streamlit.app
 
 1. Fork this repository on GitHub
 2. Go to [share.streamlit.io](https://share.streamlit.io)

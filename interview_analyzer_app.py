@@ -69,8 +69,7 @@ if st.session_state.show_welcome:
         </style>
 
         <div class="welcome-container">
-            <div class="welcome-title">🎤 Interview Speech Analyzer</div>
-            <div class="welcome-subtitle">AI-Powered Speech Quality Analysis</div>
+            <div class="welcome-title">Welcome to 🎤 Interview Speech Analyzer</div>
             <div class="welcome-description">
                 Get comprehensive feedback on your interview responses with multi-dimensional 
                 speech analysis including vocal quality, articulation, prosody, and timing.
