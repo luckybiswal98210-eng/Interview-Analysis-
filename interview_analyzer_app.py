@@ -8,9 +8,15 @@ import numpy as np
 import os
 import soundfile as sf
 import tempfile
-import sounddevice as sd
 import json
 from pathlib import Path
+
+# Try to import sounddevice (not available on cloud deployments)
+try:
+    import sounddevice as sd
+    SOUNDDEVICE_AVAILABLE = True
+except (ImportError, OSError):
+    SOUNDDEVICE_AVAILABLE = False
 
 # Import analysis modules
 try:
